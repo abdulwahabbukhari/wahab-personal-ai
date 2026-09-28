@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
 ob_start();
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');

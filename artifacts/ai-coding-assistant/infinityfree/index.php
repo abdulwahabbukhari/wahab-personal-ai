@@ -11,7 +11,7 @@ declare(strict_types=1);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css?v=20260928-final">
 </head>
 <body>
     <div class="app-shell">
@@ -188,7 +188,7 @@ declare(strict_types=1);
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
-    <script src="assets/config.js" defer></script>
-    <script src="assets/app.js" defer></script>
+    <script src="assets/config.js?v=20260928-final" defer></script>
+    <script src="assets/app.js?v=20260928-final" defer></script>
 </body>
 </html>
