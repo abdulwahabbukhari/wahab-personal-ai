@@ -1,11 +1,15 @@
 <?php
 declare(strict_types=1);
 
+ob_start();
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
 function respond(array $payload, int $status = 200): never
 {
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
     http_response_code($status);
     echo json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     exit;

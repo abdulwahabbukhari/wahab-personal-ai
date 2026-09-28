@@ -220,7 +220,13 @@ async function sendMessage() {
         attachments: state.imageAttachment ? [state.imageAttachment] : [],
       }),
     });
-    const payload = await response.json();
+    const rawResponse = await response.text();
+    let payload;
+    try {
+      payload = JSON.parse(rawResponse);
+    } catch {
+      throw new Error(`The server returned invalid JSON. Check api/chat.php and PHP errors. Response: ${rawResponse.slice(0, 180)}`);
+    }
     if (!response.ok) throw new Error(payload.error || 'Unable to reach WAHAB AI.');
     state.messages.push({ role: 'assistant', content: payload.message, model: payload.model });
     renderMessages();
@@ -374,7 +380,13 @@ async function generateImage() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ mode: 'image', prompt, size: '1024x1024' }),
     });
-    const payload = await response.json();
+    const rawResponse = await response.text();
+    let payload;
+    try {
+      payload = JSON.parse(rawResponse);
+    } catch {
+      throw new Error(`The server returned invalid JSON. Check api/chat.php and PHP errors. Response: ${rawResponse.slice(0, 180)}`);
+    }
     if (!response.ok) throw new Error(payload.error || 'The image provider could not complete the request.');
     const wrap = $('#generated-image-wrap');
     wrap.hidden = false;
