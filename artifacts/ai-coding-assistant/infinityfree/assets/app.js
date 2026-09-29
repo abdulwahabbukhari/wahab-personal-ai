@@ -25,7 +25,7 @@ const configuredApiUrl = typeof window.WAHAB_AI_API_URL === 'string'
   : '';
 const apiEndpoint = configuredApiUrl && !configuredApiUrl.includes('PASTE_REPLIT_API_URL_HERE')
   ? configuredApiUrl
-  : 'api/chat.php';
+  : 'api/message.php';
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => ({
@@ -225,7 +225,7 @@ async function sendMessage() {
     try {
       payload = JSON.parse(rawResponse);
     } catch {
-      throw new Error(`The server returned invalid JSON. Check api/chat.php and PHP errors. Response: ${rawResponse.slice(0, 180)}`);
+      throw new Error(`The server returned invalid JSON. Check api/message.php and PHP errors. Response: ${rawResponse.slice(0, 180)}`);
     }
     if (!response.ok) throw new Error(payload.error || 'Unable to reach WAHAB AI.');
     state.messages.push({ role: 'assistant', content: payload.message, model: payload.model });
@@ -385,7 +385,7 @@ async function generateImage() {
     try {
       payload = JSON.parse(rawResponse);
     } catch {
-      throw new Error(`The server returned invalid JSON. Check api/chat.php and PHP errors. Response: ${rawResponse.slice(0, 180)}`);
+      throw new Error(`The server returned invalid JSON. Check api/message.php and PHP errors. Response: ${rawResponse.slice(0, 180)}`);
     }
     if (!response.ok) throw new Error(payload.error || 'The image provider could not complete the request.');
     const wrap = $('#generated-image-wrap');

@@ -15,7 +15,7 @@ database.
    index.php
    config.php
    .htaccess
-   api/chat.php
+   api/message.php
    assets/app.js
    assets/config.js
    assets/styles.css
@@ -37,7 +37,7 @@ database.
    ```
 
 5. Open your domain. The PHP endpoint keeps the key on the server and the
-   browser talks to `api/chat.php`.
+    browser talks to `api/message.php`.
 
 ### Important InfinityFree note
 
